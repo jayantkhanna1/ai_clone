@@ -5,7 +5,7 @@ let speechSynthesis = window.speechSynthesis;
 let currentUtterance = null;
 let isPaused = false;
 let currentTheme = 'light';
-let BACKEND_URL = "http://aiclone.jayantkhanna.in";
+let BACKEND_URL = "https://aiclone.jayantkhanna.in";
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {

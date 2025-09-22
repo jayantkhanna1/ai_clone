@@ -29,7 +29,15 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": ["https://jayantkhanna1.github.io", "http://localhost:3000", "*", "https://*.jayantkhanna.in"],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
+        "supports_credentials": True
+    }
+})
+
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'

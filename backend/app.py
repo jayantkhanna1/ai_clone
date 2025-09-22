@@ -11,6 +11,7 @@ import os
 import json
 import re
 import string
+from flask_cors import cross_origin
 from collections import Counter, defaultdict
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -481,6 +482,7 @@ def health_check():
 
 
 @app.route('/upload-documents', methods=['POST'])
+@cross_origin(origins='*')
 def upload_documents():
     """Upload and process documents about the user"""
     if 'files' not in request.files:
@@ -512,6 +514,7 @@ def upload_documents():
 
 
 @app.route('/answerQuestion', methods=['POST'])
+@cross_origin(origins='*')
 def answer_question():
     """Answer questions about the user using enhanced RAG + OpenAI"""
     try:

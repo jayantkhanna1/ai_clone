@@ -250,7 +250,6 @@ function setOrbText(text) {
 function showAnswerDisplay(text) {
     const answerDisplay = document.getElementById('answerDisplay');
     const answerDisplayText = document.getElementById('answerDisplayText');
-
     answerDisplayText.textContent = text;
     answerDisplay.classList.add('show');
 }
@@ -287,7 +286,7 @@ async function askQuestion() {
 
         const data = await response.json();
         const answer = data.answer || data.response || data.text || JSON.stringify(data);
-
+        
         animateAnswer(answer);
         questionInput.value = ''; // Clear input after successful submission
 
@@ -343,7 +342,6 @@ function showLoading() {
     orbContainer.className = 'orb-container loading-state';
     stopCurrentSpeech();
     hideAnswerDisplay();
-
     setStatus('Processing...');
     setOrbText('Thinking');
 }
@@ -356,7 +354,6 @@ function showError(message) {
     orbContainer.className = 'orb-container error-state';
     stopCurrentSpeech();
     hideAnswerDisplay();
-
     setStatus('Error');
     setOrbText('Error');
 
@@ -374,25 +371,76 @@ function animateAnswer(answer) {
 
     stopCurrentSpeech();
     orbContainer.className = 'orb-container';
-    mainOrb.classList.add('orb-speaking');
-    controls.classList.add('show');
-
-    setStatus('Speaking...');
-    setOrbText('Speaking');
+    
+    // Always show the answer display first, regardless of speech synthesis
     showAnswerDisplay(answer);
-
-    // Enhanced speech synthesis
-    speakText(answer);
+    controls.classList.add('show');
+    
+    // Try to speak the text, but don't let speech synthesis failure affect the display
+    const speechSuccessful = speakText(answer);
+    
+    if (speechSuccessful) {
+        // Speech synthesis is working
+        mainOrb.classList.add('orb-speaking');
+        setStatus('Speaking...');
+        setOrbText('Speaking');
+    } else {
+        // Speech synthesis failed, but still show the answer
+        console.warn('Speech synthesis failed, but answer is still displayed');
+        setStatus('Answer Ready');
+        setOrbText('Answer Ready');
+        
+        // Auto-hide after a delay since there's no speech to wait for
+        setTimeout(() => {
+            controls.classList.remove('show');
+            setStatus('Complete');
+            setOrbText('Ready');
+            setTimeout(() => {
+                hideAnswerDisplay();
+                setStatus('Ready');
+            }, 3000);
+        }, 5000); // Show answer for 5 seconds
+    }
 }
 
-// Enhanced speech synthesis function
+// Enhanced speech synthesis function with better error handling
 function speakText(text) {
     try {
-        if (!text || !speechSynthesis) {
-            console.warn('Speech synthesis not available or no text provided');
-            return;
+        if (!text) {
+            console.warn('No text provided for speech synthesis');
+            return false;
         }
 
+        if (!speechSynthesis) {
+            console.warn('Speech synthesis not available');
+            return false;
+        }
+
+        // Check if speech synthesis is supported and working
+        if (speechSynthesis.getVoices().length === 0) {
+            console.warn('No voices available for speech synthesis');
+            // Try to load voices and speak after a delay
+            setTimeout(() => {
+                if (speechSynthesis.getVoices().length > 0) {
+                    attemptSpeechSynthesis(text);
+                } else {
+                    console.warn('Voices still not available after delay');
+                }
+            }, 100);
+            return false;
+        }
+
+        return attemptSpeechSynthesis(text);
+
+    } catch (error) {
+        console.error('Speech synthesis setup failed:', error);
+        return false;
+    }
+}
+
+// Separate function to attempt speech synthesis
+function attemptSpeechSynthesis(text) {
+    try {
         currentUtterance = new SpeechSynthesisUtterance(text);
         
         // Enhanced voice selection
@@ -417,33 +465,55 @@ function speakText(text) {
         };
 
         currentUtterance.onend = function() {
-            console.log('Speech ended');
-            currentUtterance = null;
-            const controls = document.getElementById('controls');
-            const mainOrb = document.getElementById('mainOrb');
-            
-            controls.classList.remove('show');
-            mainOrb.classList.remove('orb-speaking');
-            setStatus('Complete');
-            setOrbText('Ready');
-
-            setTimeout(() => {
-                hideAnswerDisplay();
-                setStatus('Ready');
-            }, 3000);
+            console.log('Speech ended normally');
+            handleSpeechEnd();
         };
 
         currentUtterance.onerror = function(event) {
-            console.error('Speech synthesis error:', event.error);
-            showError('Speech synthesis failed');
+            console.error('Speech synthesis error during playback:', event.error);
+            // Don't show error to user since answer is already displayed
+            // Just clean up and treat as if speech ended
+            handleSpeechEnd();
         };
 
+        // Attempt to speak
         speechSynthesis.speak(currentUtterance);
         
+        // Set a timeout as a fallback in case speech events don't fire
+        setTimeout(() => {
+            if (currentUtterance && speechSynthesis.speaking) {
+                // Speech is still going, let it continue
+                return;
+            } else if (currentUtterance) {
+                // Speech might have failed silently
+                console.warn('Speech synthesis timeout - cleaning up');
+                handleSpeechEnd();
+            }
+        }, 30000); // 30 second timeout
+
+        return true;
+
     } catch (error) {
-        console.error('Speech synthesis failed:', error);
-        showError('Text-to-speech failed');
+        console.error('Speech synthesis playback failed:', error);
+        return false;
     }
+}
+
+// Handle speech end (both successful and failed cases)
+function handleSpeechEnd() {
+    currentUtterance = null;
+    const controls = document.getElementById('controls');
+    const mainOrb = document.getElementById('mainOrb');
+    
+    controls.classList.remove('show');
+    mainOrb.classList.remove('orb-speaking');
+    setStatus('Complete');
+    setOrbText('Ready');
+    
+    setTimeout(() => {
+        hideAnswerDisplay();
+        setStatus('Ready');
+    }, 3000);
 }
 
 // Speech control functions

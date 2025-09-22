@@ -48,7 +48,7 @@ function checkBrowserCompatibility() {
         warning.classList.add('show');
         setTimeout(() => {
             warning.classList.remove('show');
-        }, 5000);
+        }, 10000);
     }
 
     return {
@@ -390,16 +390,16 @@ function animateAnswer(answer) {
         setStatus('Answer Ready');
         setOrbText('Answer Ready');
         
-        // Auto-hide after a delay since there's no speech to wait for
-        setTimeout(() => {
-            controls.classList.remove('show');
-            setStatus('Complete');
-            setOrbText('Ready');
-            setTimeout(() => {
-                hideAnswerDisplay();
-                setStatus('Ready');
-            }, 3000);
-        }, 5000); // Show answer for 5 seconds
+        // // Auto-hide after a delay since there's no speech to wait for
+        // setTimeout(() => {
+        //     controls.classList.remove('show');
+        //     setStatus('Complete');
+        //     setOrbText('Ready');
+        //     setTimeout(() => {
+        //         hideAnswerDisplay();
+        //         setStatus('Ready');
+        //     }, 3000);
+        // }, 5000); // Show answer for 5 seconds
     }
 }
 

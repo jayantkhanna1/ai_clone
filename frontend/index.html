@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Jayant</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="browser-warning" id="browserWarning">
+        ⚠️ Audio features may not work properly in this browser. Try using Chrome for best experience.
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+        <span id="themeIcon">🌙</span>
+        <span id="themeText">Dark</span>
+    </button>
+
+    <div class="main-container">
+        <h1 class="title">Ask Anything</h1>
+        
+        <div class="orb-container" id="orbContainer">
+            <div class="status-text" id="statusText">Ready</div>
+            
+            <div class="orb-ring ring-1"></div>
+            <div class="orb-ring ring-2"></div>
+            <div class="orb-ring ring-3"></div>
+            <div class="main-orb" id="mainOrb">
+                <div class="answer-text" id="orbText">Ready</div>
+            </div>
+            
+            <div class="controls" id="controls">
+                <button class="btn-small" onclick="pauseResume()" id="pauseBtn">Pause</button>
+                <button class="btn-small" onclick="stopSpeech()">Stop</button>
+            </div>
+        </div>
+
+        <div class="answer-display" id="answerDisplay">
+            <div class="answer-display-text" id="answerDisplayText"></div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-row">
+                <input 
+                    type="text" 
+                    class="question-input" 
+                    id="questionInput" 
+                    placeholder="What would you like to know?"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="btn btn-primary" onclick="askQuestion()">
+                    Submit
+                </button>
+                <button class="btn btn-secondary" id="voiceBtn" onclick="toggleVoiceRecording()">
+                    <span id="voiceBtnText">🎤 Voice</span>
+                </button>
+            </div>
+            <div class="input-hint">
+                💡 Press Enter to submit or use the voice button
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+                

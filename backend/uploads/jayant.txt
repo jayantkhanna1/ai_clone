@@ -1,0 +1,46 @@
+Who Jayant Khanna Is
+In today’s fast-paced world of technology, where innovation is the key driver of progress, individuals who blend curiosity, adaptability, and persistence tend to stand out. One such individual is Jayant Khanna—a versatile full-stack developer, data practitioner, and aspiring AI innovator. His story is not just about writing code but about constantly learning, experimenting, and striving to build solutions that make an impact. To understand who Jayant Khanna is, one must look at his educational background, professional journey, technical skills, entrepreneurial spirit, and vision for the future.
+
+Early Academic Foundation
+Jayant Khanna, born on May 31, 2002, pursued his Bachelor of Technology (B.Tech) in Computer Science Engineering at Graphic Era University in Dehradun, Uttarakhand, India, graduating in June 2024 with a CGPA of 8.9. His education laid the groundwork for his journey into computer science and software engineering, introducing him to programming, algorithms, data structures, and the fundamentals of building scalable systems. Unlike many who limit themselves to classroom learning, Jayant viewed his degree as a launchpad. He explored areas beyond textbooks—experimenting with coding projects, diving into data analytics, and gradually moving toward modern technologies such as cloud computing, artificial intelligence, and mobile application development. His commitment to learning is also evident in his certifications, including the Microsoft Technology Associate (MTA 98-383) and Microsoft Azure 900 (AZ-900).
+
+Professional Journey
+After graduating, Jayant stepped into the professional world as a Consultant at Genpact (Feb 2024 – Jul 2024) and later transitioned to a Software Developer Engineer (Jul 2024 – Present). His work at Genpact has been impactful, focusing on complex data and AI solutions. As a consultant, he built a Unified Healthcare Data Catalog that reduced data search time by up to 25% and automated metadata extraction using AWS Glue, cutting manual effort by 90%. He also developed an AI-powered financial document bot with OpenAI and Python that achieved 95% accuracy and a 70% reduction in manual review time for financial reports like 10-K and 10-Q. Currently, he works with Nike as part of the Databricks team, modernizing their legacy data architecture by transitioning from Snowflake and Airflow to a scalable Delta Lake solution.
+
+Prior to Genpact, he was an SDE Intern at Brimo Software Solutions (Oct 2022 – Jan 2024), where he led backend and ERP development for Cambay Tiger, managing inventory and geofenced deliveries across 50+ cities. He built an ERP system using Django, Redis, and Celery, which automated attendance tracking for over 100 daily users.
+
+Jayant’s versatility extends to his freelance and internship roles. As an AI Developer at Docplix (Apr 2023 – Oct 2023), he spearheaded the development of a "Personal Doctor" system using Meta's open-source LLama2, which led to a 20% increase in client acquisition. He also worked as a Backend Developer at Third Origin (Mar 2022 – Aug 2022), creating robust Python APIs, and as a Software Developer at Trivy Technologies (May 2021 – Jul 2021), where he enhanced an e-commerce platform and resolved critical bugs.
+
+Technical Skills and Expertise
+At the heart of Jayant’s identity lies his technical skill set, which continues to expand with every project he undertakes. His expertise includes:
+
+Programming Languages: A strong command of Python for backend and AI development, JavaScript/TypeScript for web and mobile interfaces, and proficiency in SQL, Java, PHP, and Node.js.
+
+Frameworks and Tools: Django and Flask for backend APIs, React and React Native for frontend and mobile interfaces, Celery, Redis, Angular JS, jQuery, and Nginx.
+
+Cloud and Data Engineering: Extensive experience with AWS, Azure, and Databricks, coupled with knowledge of PySpark, Delta Lake, and AWS Glue. He also has experience with CI/CD tools like Jenkins and Agile methodologies.
+
+AI and Analytics: A deep understanding of Generative AI, Machine Learning, and Natural Language Processing (NLP). He has applied AI models using technologies like LLaMA2 and OpenAI.
+
+Databases: Experience with PostgreSQL, MySQL, SQLite, MongoDB, and Redis.
+
+Jayant’s skills aren’t just theoretical. He has consistently applied them to projects—both professional and personal—bridging the gap between learning and implementation.
+
+Entrepreneurial and Creative Spirit
+Beyond his professional roles, Jayant has shown a remarkable entrepreneurial drive. He has built 25 live websites and has satisfied 12 clients. One example is his lead management application, designed to work seamlessly across web and mobile. This project reflects not only technical proficiency but also an understanding of business needs.
+
+Another notable initiative was his hackathon project, InterviewReady—a React.js web application that helps job seekers prepare for interviews. The app integrates with AI APIs like Tavus to create realistic video avatars with lip-syncing, provides dynamic question flows, and delivers personalized feedback on confidence, language correctness, and technical accuracy. He also built iiElara, a multi-modal AI assistant for codebases and business tools that uses open-source LLMs like LLaMA to provide customizable, on-premise AI solutions, ensuring enterprise-grade data privacy. He even secured 1st place in the Finovate Hacks hackathon.
+
+These experiences highlight Jayant’s mindset: he doesn’t just code for the sake of coding but to solve problems, enhance processes, and create opportunities.
+
+Personality and Work Ethic
+Behind the technical expertise, Jayant is someone who thrives in fast-paced, collaborative environments. Testimonials from former colleagues describe him as a proactive and detail-oriented individual with an "excellent moral character" who can execute tasks with "maximal efficiency while maintaining an outstanding professional demeanor." He is quick to adapt, eager to learn, and resilient in the face of challenges. Jayant also embodies creativity; whether through side projects or hackathon prototypes, he consistently demonstrates that he is equally capable of imagining new solutions.
+
+Career Aspirations
+Jayant is actively preparing for his next career move, aiming for a software development or AI engineer role that provides higher growth potential and compensation beyond his current package of 16 LPA. His career aspirations align with his comprehensive skill set in data engineering, AI, mobile development, and cloud platforms. He is strategically building his personal brand on LinkedIn, showcasing his expertise without raising suspicion at his current workplace. This careful balancing act reflects his maturity in navigating professional transitions.
+
+Vision for the Future
+Looking ahead, Jayant envisions himself as more than just a developer. His long-term goal is to become a leader in AI and software innovation, contributing to projects that combine intelligence, scalability, and human impact. He sees technology not just as a career but as a way to enable progress in areas such as communication, productivity, and accessibility. His entrepreneurial side suggests that he may eventually lead his own startup, building products that address gaps in the market. Given his track record of experimentation, persistence, and technical skill, this vision is not far-fetched—it is a natural extension of who he is.
+
+Conclusion
+So, who is Jayant Khanna? He is a B.Tech graduate, a full-stack software engineer, a data enthusiast, a certified AI learner, a mobile developer, and an innovator. He is someone who combines deep technical skills with creativity, professional experience with entrepreneurial ambition, and personal learning with community contribution. At his core, Jayant Khanna is a builder—of systems, solutions, and opportunities. His journey so far reflects resilience and growth, while his vision for the future shows ambition and purpose. In a world where technology evolves at lightning speed, individuals like Jayant are not just keeping pace—they are helping to define the future.
